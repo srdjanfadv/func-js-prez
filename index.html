@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Functional JS - Poland 2022</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <main>
+    <span class="header-left">&thinsp;Functional JavaScript&thinsp;</span>
+    <a href="#about-fa-content" class="header-right">
+      <img src="./images/logo-and-text.svg" />
+    </a>
+    <ul class="contents">
+      <li>
+        <div id="about-fa-content" class="target-content">
+          <a href="#" class="close"></a>
+          <span class="about">
+            <img src="./images/hire-smarter-onboard-faster.jpeg" />
+            With offices in 26 locations and a staff of 4,000+ employees, First Advantage leverages leading technology
+            and the industry’s largest global capabilities to complete background checks in 200+ countries and
+            territories</br></br>
+            • Identity checks</br>
+            • Background checks</br>
+            • Education verification</br>
+            • Qualifications proofs</br></br>
+            We utilize technology solutions to provide correct results quickly, enabling <i>smarter</i> & <i>faster</i>
+            onboarding of new employees.
+          </span>
+        </div>
+      </li>
+      <li>
+        <h1>&thinsp;Programming Paradigms&thinsp;</h1>
+        <img class="midimg" src="./images/paradigms.png">
+        <h2>Functional programming is <a href="#declerative-content"><span class="pop">Declarative</span></a>, rather than
+          <a href="#imperative-content"><span class="pop">Imperative</span></a> programming style.&thinsp;
+        </h2>
+        <div id="declerative-content" class="target-content">
+          <a href="#" class="close"></a>
+          <div class="target-inner">
+            <h2>&thinsp;Declerative approach&thinsp;</h2>
+            <pre>
+const numbers = [1,4,3,6,7,8,9,2]
+const number = 5 
+
+const results = numbers.filter(n => n > number)
+console.log(results) // [ 6, 7, 8, 9 ]
+              </pre>
+          </div>
+        </div>
+        <div id="imperative-content" class="target-content">
+          <a href="#" class="close"></a>
+          <div class="target-inner">
+            <h2>&thinsp;Imperative approach&thinsp;</h2>
+            <pre>
+const numbers = [1,4,3,6,7,8,9,2]
+const number = 5 
+
+const results = []
+for (let i = 0; i < numbers.length; i++) { 
+  if (numbers[i]> number) {
+    results.push(numbers[i])
+  }
+}  
+console.log(results) // [ 6, 7, 8, 9 ]
+              </pre>
+          </div>
+        </div>
+      </li>
+      <li>
+        <h1>&thinsp;<a href="#javascript-content"><span class="pop">JavaScript</span></a> is multi-paradigm &thinsp;</h1>
+        <div id="javascript-content" class="target-content">
+          <a href="#" class="close"></a>
+          <div class="target-inner">
+            <h2>&thinsp;History...&thinsp;</h2>
+            <pre>
+Brendan Eich created JavaScript in 1995 in few weeks. He intended to port Scheme<wbr>
+to the browser, but things changed when he was told that the new language should<wbr>
+be the scripting language companion to Java. So, he settled on a C-style<wbr>
+syntax (as does Java), but with first-class functions.             
+            </pre>
+          </div>
+        </div>     
+        <h2>So... Why does Functional programming work in JavaScript?</br></br> 
+          • <a href="#firstclass-content"><span class="pop">First class</span></a> functions:</br> 
+          <span class="small">The ability to use functions as data values: pass functions as arguments, return functions, and assign functions to variables and object properties.</br>
+          This enables partial application, currying, and composition.</span></br></br>
+          • Closures:</br>
+          <span class="small">When a function is defined inside another function, it has access to the variables in the outer function, even after the outer function exits.</br>
+          Closures are how partial applications get their fixed arguments.</span>
+        </h2>
+        <h3>💡 Closures are behaviour with data, whereas objects are data with behaviour.</h3>
+        <div id="firstclass-content" class="target-content">
+          <a href="#" class="close"></a>
+          <div class="target-inner">
+            <img class="midimg" src="./images/javascript-type-model.png"></img>
+          </div>
+        </div>     
+      </li>
+      <li>
+        <h1>&thinsp;What is making Functional programming attractive?</h1>
+        <h2>
+          In Functional Programming we: let Application State <a href="#flow-content"><span class="pop">flow through</span></a> pure functions, avoid shared state, mutable data,
+          and side-effects. 
+          <span class="small">
+        </br></br>This allows us to have:</br></br>
+          • Less code</br>
+          • Fewer errors</br>
+          • Easier concurrency</br>
+          • Better Testability</br></br></br></br>
+        </span>
+        </h2>
+        <h3>💡 But... Initialy, functional code can seem a lot more dense, and, learning can be intimidating</h3>
+        <div id="flow-content" class="target-content">
+          <a href="#" class="close"></a>
+          <div class="target-inner">
+            <h2>&thinsp;Application State Data Flow&thinsp;</h2>
+            <pre>
+const getStoreManagers = async (headers, id) =>
+  validateJWT(headers)
+  |> () => pg.query('SELECT * FROM stores(id) VALUES($1)', [id])
+  |> await
+  |> stores => stores.map(s => s.employees)
+  |> employees => employees.filter(emp => emp.isManager)
+  |> managers => managers.map(m => `{ m.lastName } { m.firstName }`
+          </pre>
+        </div>
+      </div>
+      </li>
+      <li>
+        <h1>&thinsp;Features: <a href="#pure-function-content"><span class="pop">Pure Functions</span></a>&thinsp;</h1>
+        <h2>• Pure Functions</br> 
+          <span class="small">Function is `Pure` when for the same arguments it returns the same result.</span></br></br>
+          • Referential transparency</br> 
+          <span class="small">The fact that an expression, in a program, may be replaced by its value (or anything having the same value) without changing the result of the program.</span></br></br>
+          • Side-effect free</br> 
+          <span class="small">A pure function cannot cause any side effects. Side effects may include I/O (e.g., writing to the console or a log file), modifying a mutable object, reassigning a variable, etc.</span></br></br>
+        </h2>
+        <div id="pure-function-content" class="target-content">
+          <a href="#" class="close"></a>
+          <div class="target-inner">
+            <h2>&thinsp;Pure vs Inpure Functions&thinsp;</h2>
+            <pre>
+// Pure              
+function multiply(a, b) {
+  return a * b;
+}
+
+
+// Impure, it relies on a mutable variable
+let heightRequirement = 46;
+function canRide(height) {
+  return height >= heightRequirement;
+}
+
+// Impure, it has a side-effect by logging to the console
+function multiply(a, b) {
+  console.log('Arguments: ', a, b);
+  return a * b;
+}
+            </pre>
+          </div>
+        </div>
+      </li>
+      <li>
+        <h1>&thinsp;Features: <a href="#composition-content"><span class="pop">Higher-Order Functions & Composition</span></a>&thinsp;</h1>
+        <h2></br>
+          • Higher-Order Functions</br> 
+          <span class="small">This is ability to treat Functions as values, so they be assigned to variables, passed as arguments or returned from another function.</span></br></br>
+          • Function composition</br> 
+          <span class="small">This is the process of combining two or more functions in order to produce a new function or perform some computation.</span>
+        </br></br>
+        </h2>
+        <div id="composition-content" class="target-content">
+          <a href="#" class="close"></a>
+          <div class="target-inner">
+            <h2>&thinsp;Application State Data Flow&thinsp;</h2>
+            <pre>
+  const y = h(g(f(x)));                 // composition
+  const y = x |> f(%) |> g(%) |> h(%);  // Hack pipe
+  const y = x |> f |> g |> h;           // F# pipe
+              </pre>
+          </div>
+        </div>
+      </li>
+      <li>
+        <h1>&thinsp;Features: <a href="#immutability-content"><span class="pop">Immutability</span></a>&thinsp;</h1>
+        <h2>
+          Immutable objects are <a href="#">values</a> whose state cannot be changed after declaration where as mutable objects are <a href="#">variables</a>, whose state can be changed over the whole execution of the program.
+        </h2>
+        <h3>💡 When we mutate the state, the data flow in our programs is harder to follow.</br>
+           Immutable data helps in parallel programming, too...</h3>
+        <div id="immutability-content" class="target-content">
+          <a href="#" class="close"></a>
+          <div class="target-inner">
+            <h2>&thinsp;Immutability&thinsp;</h2>
+            <pre>
+let str = 'Hello Kraków !'
+
+console.log(str.slice(0, 5))
+console.log(str)
+
+// but 
+const arr = [1, 2, 3, 4, 5]
+
+console.log(arr.splice(0, 3))
+
+console.log(arr)
+            </pre>
+          </div>
+        </div>
+      </li>
+      <li>
+        <h1>&thinsp;Advanced Functional Programming&thinsp;</h1>
+        <h2>
+          Algebraic Data Types, Monads, Type Classes</br></br>
+      • ADT: Crocks [https://github.com/evilsoft/crocks]</br>
+      • Monads: Monet [https://monet.github.io/monet.js/]</br>
+      • Type Classes: fp-ts [https://gcanti.github.io/fp-ts/]</br>
+        </h2>
+        <h3>💡 Great curated list of learning resources: <span class="pop">[https://github.com/stoeffel/awesome-fp-js]</span> </h3>
+      </li>
+      <li>
+        <h1>&thinsp;404: Page Not Found!&thinsp;</h1>
+        <h2>... but more info here 👇</h2>
+      <h3>
+      • ReScript: [https://rescript-lang.org/]</br>
+      • Grain: [https://grain-lang.org/]</br>
+      • PureScript: [https://www.purescript.org/]</br>
+      • Elm: [https://elm-lang.org/]</br>
+      • Fable: [https://fable.io/]</br>
+      </h3>
+      </li>
+    </ul>
+    <ul class="backdrops">
+      <li>
+        <img
+          src="https://images.unsplash.com/photo-1568749402196-dc116bcfca04?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8Y3liZXJwdW5rfHx8fHx8MTY2NDI5NTgyNA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1220"
+          width="1920" alt="">
+        <div class="footer">
+          <span>Srdjan Strbanovic</span>
+          <span class="footer-right">Poland 2022</p>
+        </div>
+      </li>
+      <li>
+        <img
+          src="https://images.unsplash.com/photo-1504261025028-554905831f45?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8Y3liZXJwdW5rfHx8fHx8MTY2NDIyNzYxNQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920"
+          width="1920" alt="">
+      </li>
+      <li>
+        <img
+          src="https://images.unsplash.com/photo-1624382754131-ea43374caa88?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8Y3liZXJwdW5rfHx8fHx8MTY2NDIyNzYxOQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920"
+          width="1920" alt="">
+      </li>
+      <li>
+        <img
+          src="https://images.unsplash.com/photo-1465554353290-daac7ff644fe?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8Y3liZXJwdW5rfHx8fHx8MTY2NDI5NTgxNQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920"
+          width="1920" alt="">
+      </li>
+      <li>
+        <img
+          src="https://images.unsplash.com/photo-1608501505876-408eefd7839d?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8Y3liZXJwdW5rfHx8fHx8MTY2NDI5NTgyNA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920"
+          width="1920" alt="">
+      </li>
+      <li>
+        <img
+          src="https://images.unsplash.com/photo-1649093720047-3c434b616213?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8Y3liZXJwdW5rfHx8fHx8MTY2NDIyNzYxNQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920"
+          width="1920" alt="">
+      </li>
+      <li>
+        <img
+          src="https://images.unsplash.com/photo-1553422734-fd8dd260a116?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8Y3liZXJwdW5rfHx8fHx8MTY2NDIyNzYxOQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920"
+          width="1920" alt="">
+      </li>
+      <li>
+        <img
+          src="https://images.unsplash.com/photo-1519197924294-4ba991a11128?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8Y3liZXJwdW5rfHx8fHx8MTY2NDI5NTgxNQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920"
+          width="1920" alt="">
+      </li>
+      <li>
+        <img
+          src="https://images.unsplash.com/photo-1530813093907-00d9bef0aee5?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8Y3liZXJwdW5rfHx8fHx8MTY2NDI5NTgyNA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920"
+          width="1920" alt="">
+      </li>
+    </ul>
+  </main>
+  <script src='https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js'></script>
+  <script type="module">
+    import Splitting from 'https://cdn.skypack.dev/splitting';
+
+    const TRIGGERS = document.querySelectorAll('.contents li');
+    const BACKDROPS = document.querySelectorAll('.backdrops li');
+
+    const TIMELINES = [];
+    TRIGGERS.forEach(subject => {
+      TIMELINES.push(new ViewTimeline({
+        subject,
+        axis: 'block'
+      }));
+    });
+
+    BACKDROPS.forEach((backdrop, index) => {
+      const IMG = backdrop.querySelector('img');
+
+      IMG.animate([{
+        transform: 'translateY(0%)'
+      }],
+        {
+          timeline: TIMELINES[index - 1],
+          fill: 'both',
+          delay: {
+            phase: 'exit',
+            percent: CSS.percent(5)
+          },
+
+          endDelay: {
+            phase: 'exit',
+            percent: CSS.percent(75)
+          }
+        });
+
+      IMG.animate([{
+        transform: 'translateY(-50%)'
+      }],
+        {
+          timeline: TIMELINES[index],
+          fill: 'both',
+          delay: {
+            phase: 'exit',
+            percent: CSS.percent(5)
+          },
+
+          endDelay: {
+            phase: 'exit',
+            percent: CSS.percent(100)
+          }
+        });
+    });
+
+    Splitting();
+  </script>
+</body>
+
+</html>
