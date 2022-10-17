@@ -88,7 +88,7 @@ syntax (as does Java), but with first-class functions.
           • <a href="#firstclass-content"><span class="pop">First class</span></a> functions:</br> 
           <span class="small">The ability to use functions as data values: pass functions as arguments, return functions, and assign functions to variables and object properties.</br>
           This enables partial application, currying, and composition.</span></br></br>
-          • Closures:</br>
+          • <a href="#closures-content"><span class="pop">Closures</span></a></br>
           <span class="small">When a function is defined inside another function, it has access to the variables in the outer function, even after the outer function exits.</br>
           Closures are how partial applications get their fixed arguments.</span>
         </h2>
@@ -97,6 +97,31 @@ syntax (as does Java), but with first-class functions.
           <a href="#" class="close"></a>
           <div class="target-inner">
             <img class="midimg" src="./images/javascript-type-model.png"></img>
+          </div>
+        </div>     
+        <div id="closures-content" class="target-content">
+          <a href="#" class="close"></a>
+          <div class="target-inner">
+            <pre>
+const outerFunc = function() {
+    // declare variables within the outer function
+    let outer = 32
+    
+    // (1) we don't have access to inner function's variables
+    inner ? undefined = console.log('No Access') : console.log(inner)
+
+    const innerFunc = function() { 
+        let inner = 3.14
+
+        // (2) we have access to outer function's variables, even after it executed
+        console.log(outer)
+    }
+
+    return innerFunc
+}
+const closure = outerFunc()
+closure()
+            </pre>            
           </div>
         </div>     
       </li>
